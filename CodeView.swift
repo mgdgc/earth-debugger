@@ -24,7 +24,7 @@ struct BlockAddCell: View {
                         .font(.body)
                         .foregroundColor(.white)
                     
-                    HStack(spacing: 16) {
+                    HStack(spacing: 12) {
                         if action.pollution.water != 0 {
                             HStack {
                                 Image(systemName: "drop.fill")
@@ -69,7 +69,7 @@ struct BlockAddCell: View {
                         }
                     }
                     .foregroundColor(.white)
-                    .padding()
+                    .padding(8)
                 }
                 Spacer()
                 
@@ -275,6 +275,13 @@ struct CodeView: View {
                     ScrollView(.horizontal) {
                         LazyHStack {
                             
+                            VStack {
+                                Text("Choose\ncodes here")
+                                    .font(.caption)
+                                    .multilineTextAlignment(.center)
+                                Image(systemName: "arrow.right")
+                            }
+                            
                             ForEach(CodeDataSource.actionGroups) { actionGroup in
                                 
                                 VStack {
@@ -297,7 +304,7 @@ struct CodeView: View {
                             
                         }
                     }
-                    .frame(height: 48)
+                    .frame(height: 56)
                     .sheet(item: $selectedActionGroup, content: { actionGroup in
                         BlockAddView(actionGroup: actionGroup) { action in
                             withAnimation {
@@ -330,17 +337,18 @@ struct CodeView: View {
             
             // Check runnable: motivated
             if block.dependency.contains(.motivated) {
-                if earth.motivated.amount < block.sustainable.motivated {
-                    result.append(CodeResult(code: block, result: .failed, message: "People might not be motivated enough to run this code. (current: \(earth.motivated), required: \(block.sustainable.motivated))"))
-                    break
+                print("\(earth.motivated.amount) \(block.sustainable.motivated)")
+                if earth.motivated.amount < abs(block.sustainable.motivated) {
+                    result.append(CodeResult(code: block, result: .failed, message: "People might not be motivated enough to run this code. (current: \(earth.motivated), required: \(abs(block.sustainable.motivated)))"))
+                    continue
                 }
             }
             
             // Check runnable: motivated
             if block.dependency.contains(.energy) {
-                if earth.energy.amount < block.sustainable.energy {
-                    result.append(CodeResult(code: block, result: .failed, message: "More energies required to run this code. (current: \(earth.energy), required: \(block.sustainable.energy))"))
-                    break
+                if earth.energy.amount < abs(block.sustainable.energy) {
+                    result.append(CodeResult(code: block, result: .failed, message: "More energies required to run this code. (current: \(earth.energy), required: \(abs(block.sustainable.energy)))"))
+                    continue
                 }
             }
             
@@ -409,10 +417,6 @@ struct CodeView: View {
                 result.append(CodeResult(code: block, message: "No status has been changed."))
             } else {
                 result.append(CodeResult(code: block, message: "\(affectedString) status has been affected."))
-            }
-            
-            if earth.isHealthy {
-                return result
             }
             
         }
