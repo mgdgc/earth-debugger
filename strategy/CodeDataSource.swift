@@ -12,7 +12,7 @@ class CodeDataSource {
     
     static var actionGroups: [ActionGroup] {
         [
-            energy, food, recycle
+            energy, food, recycle, transport
         ]
     }
     
@@ -163,7 +163,7 @@ class CodeDataSource {
         ActionGroup(
             groupName: "Transport",
             iconName: "transport",
-            color: Color.indigo,
+            color: Color.blue,
             actions: [
                 // MARK: banFuelVehicles()
                 Action(
@@ -172,21 +172,19 @@ class CodeDataSource {
                     pollution: PollutionAffect(water: 0, air: -20, soil: 0, ocean: 0, forest: 0),
                     sustainable: SustainableAffect(motivated: -20, energy: 0),
                     description: "Phase out internal combustion vehicles on the road. People will either buy a slightly more expensive electric car or take public transport.",
-                    color: Color.indigo
+                    color: Color.blue
                 ),
-                // MARK: banFuelVehicles()
+                // MARK: increaseElectricVehicles()
                 Action(
-                    code: "banFuelVehicles()",
-                    dependency: [.motivated],
-                    pollution: PollutionAffect(water: 0, air: -20, soil: 0, ocean: 0, forest: 0),
-                    sustainable: SustainableAffect(motivated: -20, energy: 0),
-                    description: "Phase out internal combustion vehicles on the road. People will either buy a slightly more expensive electric car or take public transport.",
-                    color: Color.indigo
+                    code: "increaseElectricVehicles()",
+                    dependency: [.energy],
+                    pollution: PollutionAffect(water: 0, air: -10, soil: 0, ocean: 0, forest: 0),
+                    sustainable: SustainableAffect(motivated: 10, energy: -50),
+                    description: "Electric vehicles are a good alternative to internal combustion engine vehicles.",
+                    color: Color.blue
                 ),
             ]
         )
     }
-    
-    
     
 }

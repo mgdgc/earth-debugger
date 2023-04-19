@@ -37,7 +37,7 @@ struct EarthLayer: View {
                 
                 
                 // MARK: Water Pollution
-                if earth.water.percentage < 1.0 {
+                if earth.water.percentage < 1.0 && !earth.isHealthy {
                     Image("red_ocean")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -47,7 +47,7 @@ struct EarthLayer: View {
                 
                 
                 // MARK: Forest
-                if earth.forest.percentage < 1.0 {
+                if earth.forest.percentage < 1.0 && !earth.isHealthy {
                     Image("desert")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -57,7 +57,7 @@ struct EarthLayer: View {
                 
                 
                 // MARK: Soil Pollution
-                if earth.soil.percentage < 1.0 {
+                if earth.soil.percentage < 1.0 && !earth.isHealthy {
                     ZStack {
                         GeometryReader { proxy in
                             ForEach(0..<Int(earth.soil.percentage * 10)) { i in
@@ -78,7 +78,7 @@ struct EarthLayer: View {
                 
                 
                 // MARK: Ocean Pollution
-                if earth.ocean.percentage < 1.0 {
+                if earth.ocean.percentage < 1.0 && !earth.isHealthy {
                     ZStack {
                         GeometryReader { proxy in
                             ForEach(0..<Int(earth.ocean.percentage * 20)) { i in
@@ -99,7 +99,7 @@ struct EarthLayer: View {
                 
                 
                 // MARK: Air Pollution
-                if earth.air.percentage < 1.0 {
+                if earth.air.percentage < 1.0 && !earth.isHealthy {
                     Color.green.opacity(Double(earth.air.percentage * 0.2))
                         .mask(Circle())
                         .padding()
