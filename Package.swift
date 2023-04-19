@@ -20,8 +20,8 @@ let package = Package(
             teamIdentifier: "BDU85ET24K",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .cloud),
-            accentColor: .presetColor(.pink),
+            appIcon: .placeholder(icon: .leaf),
+            accentColor: .presetColor(.mint),
             supportedDeviceFamilies: [
                 .pad,
                 .phone

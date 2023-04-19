@@ -14,11 +14,11 @@ struct SplitView<Content>: View where Content: View {
     var body: some View {
         GeometryReader { proxy in
             if proxy.size.width > proxy.size.height {
-                HStack {
+                HStack(spacing: 0) {
                     content()
                 }
             } else {
-                VStack {
+                VStack(spacing: 0) {
                     content()
                 }
             }

@@ -42,7 +42,7 @@ struct EarthLayer: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding()
-                        .opacity(Double(earth.water.reversePercentage))
+                        .opacity(Double(earth.water.percentage))
                 }
                 
                 
@@ -52,7 +52,7 @@ struct EarthLayer: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding()
-                        .opacity(Double(earth.forest.reversePercentage))
+                        .opacity(Double(earth.forest.percentage))
                 }
                 
                 
@@ -60,7 +60,7 @@ struct EarthLayer: View {
                 if earth.soil.percentage < 1.0 {
                     ZStack {
                         GeometryReader { proxy in
-                            ForEach(0..<Int(earth.soil.reversePercentage * 10)) { i in
+                            ForEach(0..<Int(earth.soil.percentage * 10)) { i in
                                 Image("trash")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -81,7 +81,7 @@ struct EarthLayer: View {
                 if earth.ocean.percentage < 1.0 {
                     ZStack {
                         GeometryReader { proxy in
-                            ForEach(0..<Int(earth.ocean.reversePercentage * 20)) { i in
+                            ForEach(0..<Int(earth.ocean.percentage * 20)) { i in
                                 Image(oceanImages[Int.random(in: 0..<oceanImages.count)])
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -100,7 +100,7 @@ struct EarthLayer: View {
                 
                 // MARK: Air Pollution
                 if earth.air.percentage < 1.0 {
-                    Color.green.opacity(Double(earth.air.reversePercentage * 0.2))
+                    Color.green.opacity(Double(earth.air.percentage * 0.2))
                         .mask(Circle())
                         .padding()
                 }
@@ -175,7 +175,7 @@ struct EarthView_Previews: PreviewProvider {
                 soil: Amount(0.2),
                 ocean: Amount(0.1),
                 forest: Amount(0),
-                fatigue: Amount(),
+                motivated: Amount(),
                 energy: Amount()
             )
         ))

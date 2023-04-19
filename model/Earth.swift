@@ -17,30 +17,54 @@ struct Earth {
     var forest: Amount = Amount()
     
     // MARK: Sustainability Factors
-    var fatigue: Amount = Amount()
+    var motivated: Amount = Amount()
     var energy: Amount = Amount()
+    
+    var isHealthy: Bool {
+        water.percentage < 0.1
+        && air.percentage < 0.1
+        && soil.percentage < 0.1
+        && ocean.percentage < 0.1
+        && forest.percentage < 0.1
+    }
+    
+    mutating func effect(pollution: [PollutionFactor : Float]? = nil, sustainable: [SustainableFactor : Float]? = nil) {
+        
+        // Pollution Effect
+        if let pollution = pollution {
+            if let waterEffect = pollution[.water] {
+                water.effect(percentage: waterEffect)
+            }
+            
+            if let airEffect = pollution[.air] {
+                air.effect(percentage: airEffect)
+            }
+            
+            if let soilEffect = pollution[.soil] {
+                soil.effect(percentage: soilEffect)
+            }
+            
+            if let oceanEffect = pollution[.ocean] {
+                ocean.effect(percentage: oceanEffect)
+            }
+            
+            if let forestEffect = pollution[.forest] {
+                forest.effect(percentage: forestEffect)
+            }
+        }
+        
+        // Sustainable Effect
+        if let sustainable = sustainable {
+            if let motivatedEffect = sustainable[.motivated] {
+                motivated.effect(percentage: motivatedEffect)
+            }
+            
+            if let energyEffect = sustainable[.energy] {
+                energy.effect(percentage: energyEffect)
+            }
+        }
+    }
     
 }
 
-struct Amount {
-    let max: Float
-    var amount: Float
-    
-    init(max: Float = 100, amount: Float = 100) {
-        self.max = max
-        self.amount = amount
-    }
-    
-    init(max: Float = 100, _ percentage: Float) {
-        self.max = max
-        self.amount = percentage * max
-    }
-    
-    var percentage: Float {
-        amount / max
-    }
-    
-    var reversePercentage: Float {
-        1.0 - amount / max
-    }
-}
+

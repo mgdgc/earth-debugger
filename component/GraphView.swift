@@ -48,6 +48,8 @@ struct GraphView: View {
         VStack {
             HStack {
                 Image(systemName: systemImage)
+                    .frame(width: 24)
+                    .foregroundColor(Color.black)
                 Text(title)
                     .font(.caption.bold())
                     .foregroundColor(Color.black)
