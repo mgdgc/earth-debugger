@@ -79,7 +79,7 @@ struct InfoView: View {
                     }
                     .padding()
                     
-                    InfoCell(title: "Earth Picture", image: "earth", source: "Wikipedia", url: "https://en.wikipedia.org/wiki/Earth")
+                    InfoCell(title: "Earth Picture", image: "earth", source: "Wikipedia", url: "https://ko.wikipedia.org/wiki/위성_사진")
                         .listRowSeparator(.hidden)
                 }
                 .padding()
