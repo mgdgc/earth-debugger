@@ -50,3 +50,16 @@ It's important to place code blocks with these sustainability factors in mind.
 <img src="/res/code_fail.png" width="360px"/>
 </div>
 
+전략이 완성되었다면 `Run` 버튼을 눌러 이를 실행할 수 있습니다.
+
+실행이 완료되면 지구가 깨끗해졌는지 확인할 수 있고, 코드가 성공적으로 실행되었는지 여부와 해당 코드가 끼친 영향, 그리고 만약 실행되지 않았다면 그 이유를 확인할 수 있습니다.
+
+예상과 다르게 실행되었다면 결과창을 보고 수정한 이후 다시 시도해볼 수도 있습니다.
+
+Once your strategy is complete, you can run it by pressing the `Run` button.
+
+After running, you can see if the planet is clean, if the code ran successfully, and what impact it had. If it failed, you'll also be able to check why.
+
+If the result is not what you expected, you can fix it and try again.
+
+<img src="/res/debugging.gif"/>
