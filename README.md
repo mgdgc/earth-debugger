@@ -1,15 +1,35 @@
+
 #  Earth Debugger
 
-<img src="/res/app_icon.png" width="128px"/>
+<img src="/res/app_icon.png" width="256px"/>
 
 Earth Debugger는 코딩을 처음 시작하는 사람들이 코딩을 쉽고, 중요한 문제를 해결할 수 있는 도구로서 받아들일 수 있도록 아픈 지구를 코딩으로 깨끗하게 치료하자는 목표를 가지고 있습니다.
 
 Earth Debugger was born out of the idea of curing a sick planet with coding. The goal is to get people who are new to coding to embrace coding as a tool that is easy and can solve important problems.
 
+1. [Specs](#specs)
+2. [Details](#details)
+    - [Earth Status](#earth-status)
+    - [Code](#code)
+    - [Result](#result)
+3. [Credit](#credit)
+4. [License](#license)
+  
+## Specs
+
+<a href="https://developer.apple.com/kr/swift/"><img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&logoColor=white"/></a>
+<a href="https://developer.apple.com/kr/xcode/swiftui/"><img src="https://img.shields.io/badge/SwiftUI-0D96F6?style=flat&logo=Swift&logoColor=black"/></a>
+<a href="https://developer.apple.com/kr/xcode/"><img src="https://img.shields.io/badge/Xcode-147EFB?style=flat&logo=Xcode&logoColor=white"/></a>
+
+- Xcode 14.3 App Playground
+- iPadOS Playground not tested
+- Runnable: Mac(Mac Catalyst), iPad(iPadOS 16), iOS(iOS 16, some UI may not functional)
+
+## Details
+
 <img src="/res/opening.gif"/>
 
-
-## Earth Status
+### Earth Status
 
 <img src="/res/status.png" width="256px"/>
 
@@ -23,7 +43,7 @@ The goal is to get all the `Pollution Factor` values below 10% to clean up the p
 
 <img src="/res/code_add.gif"/>
 
-## Code
+### Code
 
 <img src="/res/code_sample.png" width="360px"/>
 
@@ -43,7 +63,7 @@ The example `reduceBeef()` will reduce the `air pollution`, `soil pollution`, an
 
 It's important to place code blocks with these sustainability factors in mind.
 
-## Result
+### Result
 
 <div>
 <img src="/res/earth_healthy.png" width="360px"/>
@@ -63,3 +83,13 @@ After running, you can see if the planet is clean, if the code ran successfully,
 If the result is not what you expected, you can fix it and try again.
 
 <img src="/res/debugging.gif"/>
+
+## Credit
+- Earth Picture: from [Wikipedia](https://ko.wikipedia.org/wiki/위성_사진)
+- Material Icons: from [Material Design](https://fonts.google.com/icons)
+- SF Symbols: from [Apple](https://developer.apple.com/design/resources/)
+
+## License
+[License](https://github.com/mgdgc/earth-debugger/blob/main/LICENSE)
+
+
