@@ -30,6 +30,7 @@ Earth Debugger was born out of the idea of curing a sick planet with coding. The
 ## Details
 
 <img src="/res/opening.gif"/>
+https://youtu.be/prc4jeNdFfA
 
 ### Earth Status
 
